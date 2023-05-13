@@ -1,8 +1,11 @@
 public class Menu{
-    private Journal currentJournal = new Journal("journal_1.csv");
+    private Journal currentJournal;
     public void Display(){
         string selection ="";
         Console.Clear();
+        Console.WriteLine("To begin, please enter the path to your journal file:");
+        string journalPath = Console.ReadLine();
+        currentJournal = new Journal(journalPath);
         while(selection!=("C") || selection!=("V") || selection!=("E")){
             Console.WriteLine("Welcome to your journal!\n\nPlease select one of the following:\n[C]reate a new entry\n[V]iew Entries\n[E]xit and save\n");
             selection = Console.ReadLine().ToUpper();
