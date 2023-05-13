@@ -2,9 +2,11 @@ public class Journal{
     private List<Entry> _entries = new List<Entry>();
     private CSVLoader _accessControl = new CSVLoader();
     private Prompt todaysPrompt = new Prompt();
+    private string _filePath;
 
     public Journal(string filePath){
-        _accessControl.load("journal_1.csv");
+        _accessControl.load(filePath);
+        _filePath=filePath;
         _entries = _accessControl.ReturnContents();
         todaysPrompt.AddPrompt("How was school?");
         todaysPrompt.AddPrompt("How was your day?");
@@ -30,7 +32,7 @@ public class Journal{
         }
     }
     public void WriteEntries(){
-        _accessControl.overwrite("journal_1.csv", _entries);
+        _accessControl.overwrite(_filePath, _entries);
     }
     public string TodaysPrompt(string type=""){
         if(type=="random"){
