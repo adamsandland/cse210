@@ -3,7 +3,7 @@ public class Menu{
     public void Display(){
         string selection ="";
         Console.Clear();
-        Console.WriteLine("To begin, please enter the path to your journal file:");
+        Console.WriteLine("To begin, please enter the journal you would like to open:");
         string journalPath = Console.ReadLine();
         currentJournal = new Journal(journalPath);
         while(selection!=("C") || selection!=("V") || selection!=("E")){
