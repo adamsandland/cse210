@@ -36,4 +36,7 @@ public class ScriptureHandler{
         }
         return complete;
     }
+    public bool wordsLeft(){
+        return _ListOfWords.TrueForAll(x => x.Equals("____"));
+    }
 }

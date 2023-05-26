@@ -10,11 +10,17 @@ class Program
         while(exit!=true){
             string respo = menu.WaitOnResponse();
             if(respo=="h"){
-                Random rand = new Random();
-                for(int i = 0; i<rand.Next(1,4); i++){
-                    scriptRef.HideWord();
+                if(!scriptRef.wordsLeft()){
+                    Random rand = new Random();
+                    for(int i = 0; i<rand.Next(1,4); i++){
+                        if(!scriptRef.wordsLeft()){
+                            scriptRef.HideWord();
+                        }
+                    }
+                    menu.UpdateScreen(scriptRef.ReturnRef(), scriptRef.ReturnScript());
+                }else{
+                    exit=true;
                 }
-                menu.UpdateScreen(scriptRef.ReturnRef(), scriptRef.ReturnScript());
             }else if(respo=="r"){
                 scriptRef.RevealLastWord();
                 menu.UpdateScreen(scriptRef.ReturnRef(), scriptRef.ReturnScript());
