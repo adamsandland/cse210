@@ -1,31 +1,31 @@
 public class Runner{
     public int GetFloor(Elevator currentObject){
-        return currentObject./*returning floor unmber function*/
+        return currentObject.currentFloor();
     }
     public void RequestFloor(Elevator currentObject, int floor){
-        if(currentObject./*name of return floor availability function*/){
+        if(currentObject.GetAvailability(floor)){
             MoveToFloor(currentObject, floor);
         }
     }
     private void MoveToFloor(Elevator currentObject, int floorNumber){
-        currentObject./*function for setting floor variable*/(floorNumber);
+        currentObject.moveFloor(floorNumber);
     }
     public void DisplayFloor(Elevator currentObject){
         Console.WriteLine($"Current Floor: {GetFloor(currentObject)}");
     }
     public void DisplayAvailableFloors(Elevator currentObject){
         
-        Console.WriteLine($"{currentObject./*GetList function*/}");
+        Console.WriteLine($"{currentObject.ListFloors()}");
     }
     public void OpenCloseDoor(Elevator currentObject, string userInput){
         userInput.ToUpper();
         if(!currentObject.GetOpen()){
             if(userInput=="OPEN"){
-                currentObject.OpenDoors();
+                currentObject.Open();
             }
         }else{
             if(userInput=="CLOSE"){
-                currentObject.CloseDoors();
+                currentObject.Close();
             }
         }
     }
