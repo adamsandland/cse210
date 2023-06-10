@@ -4,6 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
+        Menu mainMenu = new Menu();
+        List<Activity> activities = new List<Activity>();
+
+        mainMenu.WelcomeUser();
+        Activity choice = mainMenu.PromptNewActivity();
+        if(choice!=null){
+            choice.ActivityStart();
+        }
     }
 }
