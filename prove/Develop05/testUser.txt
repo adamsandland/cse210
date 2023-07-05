@@ -1,8 +1,10 @@
 **Username**
-Adam || 35
+Adam || 60
 **Simple**
 Eat || 25
+Do my Data Science HW || 50
 **Eternal**
 Get Married || 500
 **Checklist**
-Make Breakfast || 25 || 5 || 0
+Make Breakfast || 25 || 5 || 1
+find three girlfriends || 1000 || 3 || 0
