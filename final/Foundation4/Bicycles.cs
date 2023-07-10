@@ -1,15 +1,45 @@
 public class Bicycles:Exercise{
-    private int speed;
-    public override string GetDistance(int mi_or_km)
-    {
-        return base.GetDistance(mi_or_km);
+    private int _speed;
+    public Bicycles(int speed, double timeInMinutes) : base(timeInMinutes){
+        _speed=speed;
     }
-    public override string GetPace(int mi_or_km)
+    public override double GetDistance(int mi_or_km)
     {
-        return base.GetPace(mi_or_km);
+        switch(mi_or_km){
+            case 0:
+                return base._timeInMinutes/GetSpeed(0);
+                //mi
+            case 1:
+                return base._timeInMinutes/GetSpeed(1);
+                //km
+            default:
+                return 0;
+        }
     }
-    public override string GetSpeed(int mi_or_km)
+    public override double GetPace(int mi_or_km)
     {
-        return base.GetSpeed(mi_or_km);
+        switch(mi_or_km){
+            case 0:
+                return 60/GetSpeed(0);
+                //mi
+            case 1:
+                return 60/GetSpeed(1);
+                //km
+            default:
+                return 0;
+        }
+    }
+    public override double GetSpeed(int mi_or_km)
+    {
+        switch(mi_or_km){
+            case 0:
+                return 0.62*_speed;
+                //mi
+            case 1:
+                return _speed;
+                //km
+            default:
+                return 0;
+        }
     }
 }
